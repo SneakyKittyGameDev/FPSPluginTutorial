@@ -19,6 +19,16 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	bool bFreeLooking;
+	FRotator FreeLookControlRotation;
+	
+	UFUNCTION(BlueprintCallable, Category = "TUTORIAL")
+	void StartFreeLook(bool EnableFreeLook);
+	UFUNCTION(BlueprintCallable, Category = "TUTORIAL", meta = (ExpandBoolAsExecs = "ReturnValue"))
+	bool ValidTurn(float AxisValue);
+	UFUNCTION(BlueprintCallable, Category = "TUTORIAL", meta = (ExpandBoolAsExecs = "ReturnValue"))
+	bool ValidUp(float AxisValue);
+	
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
